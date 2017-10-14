@@ -28,10 +28,10 @@ Debian Jessie image from meveric is disponible for download [here](https://forum
 
 Main script **configure.sh** gets some parameters:
 
-* --hostname=HOSTNAME: Replace HOSTNAME with your desired host name. This parameter is mandatory.
-* --ip=IP: Replace IP with your static ip address.
-* --mask=MASK: Replace MASK with your network mask.
-* --gateway=GW: Replace GW with your gateway ip address.  
+* --hostname HOSTNAME: Replace HOSTNAME with your desired host name. This parameter is mandatory.
+* --ip IP: Replace IP with your static ip address.
+* --mask MASK: Replace MASK with your network mask.
+* --gateway GW: Replace GW with your gateway ip address.  
 
 If the **--ip** parameter is supplied **--mask** and **--gateway** parameters are mandatory.
 
@@ -48,7 +48,7 @@ root@odroid-jessie:~/odroid-webserver/master# ./configure.sh --hostname foo-odro
 Script execution with **dhcp network** configuration:
 
 ```
-root@odroid-jessie:~/odroid-webserver/master# ./configure.sh --hostname foo-odroid 
+root@odroid-jessie:~/odroid-webserver/master# ./configure.sh --hostname foo-odroid
 ```
 
 **NOTA:** This configuration could take beetwen 30-60 minutes depending on your internet bandwith.
