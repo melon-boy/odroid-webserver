@@ -1,0 +1,4 @@
+- Add -cpu-used 'n' and -threads 't' and do some tests.
+Hacer una classe logging que herede de logging y que permita:
+- Imprimar en pantalla => OK.
+- Imprimir en fichero de log.

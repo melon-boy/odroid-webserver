@@ -1,0 +1,6 @@
+# Local project files and directories
+/base-image/
+/custom-image/
+
+# Apple folder index
+.DS_Store

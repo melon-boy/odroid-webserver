@@ -1,0 +1,21 @@
+version 2017.09.26
+
++ [ffmpeg] Added set_preset method. That allows to encode in some of the preset options. 'fast' preset by default.
+* [command] Fixed heritance problem in 'Command' class. Now class inherits from python base class 'object'.
++ [ffmpeg] Added 'BasicLogging' configuration for messages. 
++ [ffmpeg] Added logging information message.
++ [ffmpeg] Added method to create a temporary file for video files concatenation.
+
+initial version 2017.09.01
+
+- [ffmpeg] Created concatenate method.
+- [ffmpeg] Created create_video_list method to create video_files.txt needed by the concatenate method.
+- [ffmpeg] Created command line execution. 
+- [ffmpeg] Created split method. Output is not mandatory.
+- [ffmpeg] Created convert_to method that may take both video and/or audio codec as arguments.
+- [ffprobe] Created method to get a list of all defined entries.
+- [ffprobe] Created methods to get value of an format or stream entry as defined into the 'ffprobe' command.
+
+
+
+
