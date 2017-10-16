@@ -107,6 +107,8 @@ if [ ! -z $IP ] ; then
   fi
 fi
 
+# TODO: Prevent to execute within an ssh connection due to network configuration
+
 # Execution of diferent scripts to configure the distro.
 ./dist-upgrade.sh
 check_result $?
