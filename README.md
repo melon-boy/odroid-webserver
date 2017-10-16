@@ -86,4 +86,4 @@ Here is a list of things that the scripts do:
 
 ## Credits
 
-Scripts created and tested by M. Espinosa © 2017 (themelonboy@themelonboy.com)
+Scripts created and tested by M. Espinosa <melon-boy> © 2017 (themelonboy@themelonboy.com)
