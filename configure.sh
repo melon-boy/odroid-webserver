@@ -11,50 +11,6 @@ function abort {
   exit 1
 }
 
-function get_opts {
-
-  PARAM1=$1
-  PARAM2=$2
-
-  OPTIONS=h:i:m:g:
-  LONGOPTIONS=hostname:,ip:,mask:,gateway:
-
-  PARSED=$(getopt --options=$OPTIONS --longoptions=$LONGOPTIONS --name "$PARAM1" -- "$PARAM2")
-
-  eval set -- "$PARSED"
-
-  while true; do
-    case "$1" in
-        -h|--hostname)
-           HOST="$2"
-           echo "getopt HOST: $HOST"
-           shift 2
-           ;;
-        -i|--ip)
-           IP="$2"
-           shift 2
-           ;;
-        -m|--mask)
-           MASK="$2"
-           shift 2
-           ;;
-        -g|--gateway)
-          GW="$2"
-          shift 2
-          ;;
-        --)
-          shift
-          break
-          ;;
-        *)
-          abort
-          ;;
-      esac
-  done
-
-
-}
-
 function _wait {
 
   COUNT=$1
@@ -102,8 +58,41 @@ function print_usage {
 
 ##################### Main execution
 # Parse arguments
-get_opts $0 $@
-echo "HOST: $HOST"
+OPTIONS=h:i:m:g:
+LONGOPTIONS=hostname:,ip:,mask:,gateway:
+
+PARSED=$(getopt --options=$OPTIONS --longoptions=$LONGOPTIONS --name "$0" -- "$@")
+
+eval set -- "$PARSED"
+
+while true; do
+  case "$1" in
+      -h|--hostname)
+         HOST="$2"
+         shift 2
+         ;;
+      -i|--ip)
+         IP="$2"
+         shift 2
+         ;;
+      -m|--mask)
+         MASK="$2"
+         shift 2
+         ;;
+      -g|--gateway)
+        GW="$2"
+        shift 2
+        ;;
+      --)
+        shift
+        break
+        ;;
+      *)
+        abort
+        ;;
+    esac
+done
+
 if [ -z $HOST ] ; then
   echo "Hostname parameter missing."
   print_usage
