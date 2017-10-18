@@ -1,9 +1,11 @@
 #!/bin/bash
 
+# Global variables
 HOST=""
 IP=""
 MASK=""
 GW=""
+KEYMAP=""
 
 ##################### Functions definition
 function abort {
@@ -51,15 +53,15 @@ function check_result {
 function print_usage {
 
   echo "Usage:"
-  echo "./configure.sh --hostname HOSTNAME [--ip IP --mask MASK --gateway GW]"
+  echo "./configure.sh --hostname HOSTNAME [--ip IP --mask MASK --gateway GW] [--keymap KEYMAP]"
   echo "More info at https://github.com/melon-boy/odroid-webserver/README.md"
 
 }
 
 ##################### Main execution
 # Parse arguments
-OPTIONS=h:i:m:g:
-LONGOPTIONS=hostname:,ip:,mask:,gateway:
+OPTIONS=h:i:m:g:k:
+LONGOPTIONS=hostname:,ip:,mask:,gateway:,keymap:
 
 PARSED=$(getopt --options=$OPTIONS --longoptions=$LONGOPTIONS --name "$0" -- "$@")
 
@@ -81,6 +83,10 @@ while true; do
          ;;
       -g|--gateway)
         GW="$2"
+        shift 2
+        ;;
+      -k|--keymap)
+        KEYMAP="$2"
         shift 2
         ;;
       --)
@@ -108,7 +114,7 @@ if [ ! -z $IP ] ; then
 fi
 
 # Execution of diferent scripts to configure the distro.
-./dist-upgrade.sh
+./dist-upgrade.sh $KEYMAP
 check_result $?
 _wait 5
 # securization with hostname, ip address, mask and gateway parameters.

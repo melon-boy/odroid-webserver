@@ -13,10 +13,10 @@ Debian Jessie image from meveric is disponible for download [here](https://forum
 ### Get projet folder from git
 
 * Login as user **root** into your Odroid installation.
-* Install git package:
+* Install git package (-qq for ultra silent option):
 
 	```
-	root@odroid-jessie:~# apt-get install git
+	root@odroid-jessie:~# apt-get update -qq | apt-get install git -qq
 	```
 * Clone git repository:
 
@@ -29,11 +29,10 @@ Debian Jessie image from meveric is disponible for download [here](https://forum
 Main script **configure.sh** gets some parameters:
 
 * --hostname HOSTNAME: Replace HOSTNAME with your desired host name. This parameter is mandatory.
-* --ip IP: Replace IP with your static ip address.
+* --ip IP: Replace IP with your static ip address. If the **--ip** parameter is supplied **--mask** and **--gateway** parameters are mandatory.
 * --mask MASK: Replace MASK with your network mask.
 * --gateway GW: Replace GW with your gateway ip address.  
-
-If the **--ip** parameter is supplied **--mask** and **--gateway** parameters are mandatory.
+* --keymap KEYMAP: Configure layout for your keyboard. This parameter is optional.
 
 If primary network configuration configuration is not supplied, network is configured in **dhcp** mode.
 
@@ -49,6 +48,12 @@ Script execution with **dhcp network** configuration:
 
 ```
 root@odroid-jessie:~/odroid-webserver/master# ./configure.sh --hostname foo-odroid
+```
+
+Script execution with **dhcp network** and **spanish keyboard layout** configuration:
+
+```
+root@odroid-jessie:~/odroid-webserver/master# ./configure.sh --hostname foo-odroid --keymap es
 ```
 
 **NOTA:** This configuration could take beetwen 30-60 minutes depending on your internet bandwith.
@@ -86,4 +91,8 @@ Here is a list of things that the scripts do:
 
 ## Credits
 
+Developed with [Atom](https://atom.io).
+
 Scripts created and tested by M. Espinosa <melon-boy> © 2017 (themelonboy@themelonboy.com)
+
+Special Thanks to **meveric** for Debian Jessie distribution for Odroid.
