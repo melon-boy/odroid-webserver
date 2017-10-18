@@ -64,7 +64,7 @@ Our info php page has to be shown.
 
 ## What does the scripts do to my newly linux system?
 
-The scripts do several things in order to hace the system updated and installed with needed packages.
+The scripts do several things in order to update the system and install needed packages.
 
 Here is a list of things that the scripts do:
 
