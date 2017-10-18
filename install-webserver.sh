@@ -47,6 +47,8 @@ cp -f ./etc/nginx/sites-available/default /etc/nginx/sites-available/.
 echo "Webserver --> Restarting nginx service"
 service nginx restart
 check_result $? "Error restarting nginx service"
+echo "Creating php test page --> index.php"
+echo "<?php phpinfo(); ?>" > /var/www/html/index.php
 echo "OK"
 echo "######################################"
 echo "#             Done                   #"

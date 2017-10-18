@@ -41,26 +41,20 @@ If primary network configuration configuration is not supplied, network is confi
 Script execution with **static network** configuration:
 
 ```
-root@odroid-jessie:~/odroid-webserver/master# ./configure.sh --hostname foo-odroid --ip 192.168.1.30 --mask 255.255.255.0 --gateway 192.168.1.1
+root@odroid-jessie:~/odroid-webserver# ./configure.sh --hostname foo-odroid --ip 192.168.1.30 --mask 255.255.255.0 --gateway 192.168.1.1
 ```
 
 Script execution with **dhcp network** configuration:
 
 ```
-root@odroid-jessie:~/odroid-webserver/master# ./configure.sh --hostname foo-odroid
+root@odroid-jessie:~/odroid-webserver# ./configure.sh --hostname foo-odroid
 ```
 
 **NOTA:** This configuration could take beetwen 30-60 minutes depending on your internet bandwith.
 
 ### Webserver test
 
-In order to test our new server we can create an **index.php** file with **phpinfo()** function and point to the web address from our favourite navigator as follows:
-
-```
-root@odroid-jessie:~# echo "<?php phpinfo(); ?>" > /var/www/html/index.php
-```
-
-Finally, from our navigator we type:
+In order to test our new server we can load the next address in our favorite navigator:
 
 ```
 http://<webserver ip address>/index.php
