@@ -10,9 +10,10 @@ RES=0
 
 ##################### Functions definition
 function check_result {
-
+  echo "$RES"
   if [ "$1" -gt "0" ] ; then
     RES=1
+    exit 1
   fi
 
 }
@@ -24,7 +25,6 @@ echo "######################################"
 echo "Securization --> Configuring master hostname to <$HOST>"
 echo $HOST > /etc/hostname
 sed -i -e "s/odroid-jessie/$HOST master/g" /etc/hosts
-check_result $?
 echo "Securization --> Network configuration"
 # dhcp configuration
 if [ -z $IP ] ; then
@@ -33,33 +33,25 @@ if [ -z $IP ] ; then
 # static configuration
 else
   cp -f ./etc/network/interfaces.static /tmp/interfaces
-  check_result $?
   sed -i -e "s/IP_ADDRESS/$IP/g" /tmp/interfaces
-  check_result $?
   sed -i -e "s/MASK/$MASK/g" /tmp/interfaces
-  check_result $?
   sed -i -e "s/GATEWAY/$GW/g" /tmp/interfaces
-  check_result $?
   cp -f /tmp/interfaces /etc/network/.
-  check_result $?
   route add default gw $GW
-  check_result $?
 fi
 
 echo "Securization --> Restarting networking service"
 service networking restart
-check_result $?
 if [ "$?" -eq "0" ] ; then
   ifup eth0
 fi
 
 echo "Securization --> Installing previous dependencies"
 apt-get install sudo whois -qq
-check_result $?
 
 echo "Securization --> Adding new user <op> with password <toor>"
 useradd -p $(mkpasswd $PASS) -s /bin/bash -G sudo -d /home/$USER -m $USER
-check_result $?
+check_result $? "Error creating user!"
 
 echo "######################################"
 echo "#             Done                   #"

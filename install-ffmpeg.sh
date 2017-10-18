@@ -7,6 +7,7 @@ function check_result {
 
   if [ "$1" -gt "0" ] ; then
     RES=1
+    exit 1
   fi
 
 }

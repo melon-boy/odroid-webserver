@@ -6,17 +6,17 @@ A set of scripts to automate the installation and configuration of a web server 
 
 ## Image download
 
-Debian Jessie image from meveric is available for download [here](https://forum.odroid.com/viewtopic.php?f=96&t=17542).
+Debian Jessie image from meveric is disponible for download [here](https://forum.odroid.com/viewtopic.php?f=96&t=17542).
 
 ## Scripts usage
 
 ### Get projet folder from git
 
 * Login as user **root** into your Odroid installation.
-* Install git package (-qq added for ultra silent mode):
+* Install git package:
 
 	```
-	root@odroid-jessie:~# apt-get update -qq | apt-get install git -qq
+	root@odroid-jessie:~# apt-get install git
 	```
 * Clone git repository:
 
@@ -71,7 +71,7 @@ Our info php page has to be shown.
 
 ## What does the scripts do to my newly linux system?
 
-The scripts do several things in order to have the system updated and installed with needed and ultimate packages.
+The scripts do several things in order to hace the system updated and installed with needed packages.
 
 Here is a list of things that the scripts do:
 
@@ -86,6 +86,4 @@ Here is a list of things that the scripts do:
 
 ## Credits
 
-Debian image for Odroid packed and distributed by meveric.
-Developed with [Atom](https://atom.io).
-Scripts created and tested by M. Espinosa © 2017 melon-boy (themelonboy@themelonboy.com)
+Scripts created and tested by M. Espinosa <melon-boy> © 2017 (themelonboy@themelonboy.com)

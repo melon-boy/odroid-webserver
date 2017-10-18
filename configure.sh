@@ -107,22 +107,20 @@ if [ ! -z $IP ] ; then
   fi
 fi
 
-# TODO: Prevent to execute within an ssh connection due to network configuration
-
 # Execution of diferent scripts to configure the distro.
 ./dist-upgrade.sh
 check_result $?
-_wait 10
+_wait 5
 # securization with hostname, ip address, mask and gateway parameters.
 ./securization.sh $HOST $IP $MASK $GW
 check_result $?
-_wait 10
+_wait 5
 ./install-ffmpeg.sh
 check_result $?
-_wait 10
+_wait 5
 ./install-pkgs.sh
 check_result $?
-_wait 10
+_wait 5
 ./install-webserver.sh
 check_result $?
 echo "Finished! Scripts developed by M. Espinosa (c) 2017"
