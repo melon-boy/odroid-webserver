@@ -52,6 +52,10 @@ echo "Securization --> Adding new user <op> with password <toor>"
 useradd -p $(mkpasswd $PASS) -s /bin/bash -G sudo -d /home/$USER -m $USER
 check_result $? "Error creating user!"
 
+echo "Securization --> Change <root> password"
+passwd
+check_result $? "Error changing root password!"
+
 echo "######################################"
 echo "#             Done                   #"
 echo "######################################"
