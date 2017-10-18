@@ -31,6 +31,7 @@ check_result $? "Error installing nginx server"
 echo "Webserver --> Starting nginx service"
 service nginx start
 check_result $? "Error starting nginx service"
+echo "OK"
 echo "Webserver --> Installing php for nginx"
 apt-get install php5-fpm -qq
 check_result $? "Error installing php for nginx"
@@ -40,11 +41,13 @@ cp -f ./etc/php5/fpm/pool.d/www.conf /etc/php5/fpm/pool.d/.
 echo "Webserver --> Restarting php for nginx service"
 service php5-fpm restart
 check_result $? "Error restarting php for nginx service"
+echo "OK"
 echo "Webserver --> Configuring nginx with php"
 cp -f ./etc/nginx/sites-available/default /etc/nginx/sites-available/.
 echo "Webserver --> Restarting nginx service"
 service nginx restart
 check_result $? "Error restarting nginx service"
+echo "OK"
 echo "######################################"
 echo "#             Done                   #"
 echo "######################################"

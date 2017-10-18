@@ -7,7 +7,7 @@ function check_result {
 
   if [ "$1" -gt "0" ] ; then
     RES=1
-    echo $2 
+    echo $2
     exit 1
   fi
 
@@ -18,7 +18,7 @@ echo "# Packages deps installation           #"
 echo "########################################"
 # Install python
 echo "Packages --> Preparing Python installation ..."
-apt-get install python3 python-pip -q
+apt-get install python3 python-pip -q -y
 check_result $? "Error installing Python!"
 
 # ffmpeg_pywrapper

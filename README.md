@@ -16,7 +16,8 @@ Debian Jessie image from meveric is disponible for download [here](https://forum
 * Install git package (-qq for ultra silent option):
 
 	```
-	root@odroid-jessie:~# apt-get update -qq | apt-get install git -qq
+	root@odroid-jessie:~# apt-get update -qq
+	root@odroid-jessie:~# apt-get install git -q -y
 	```
 * Clone git repository:
 
@@ -31,8 +32,7 @@ Main script **configure.sh** gets some parameters:
 * --hostname HOSTNAME: Replace HOSTNAME with your desired host name. This parameter is mandatory.
 * --ip IP: Replace IP with your static ip address. If the **--ip** parameter is supplied **--mask** and **--gateway** parameters are mandatory.
 * --mask MASK: Replace MASK with your network mask.
-* --gateway GW: Replace GW with your gateway ip address.  
-* --keymap KEYMAP: Configure layout for your keyboard. This parameter is optional.
+* --gateway GW: Replace GW with your gateway ip address.
 
 If primary network configuration configuration is not supplied, network is configured in **dhcp** mode.
 
@@ -48,12 +48,6 @@ Script execution with **dhcp network** configuration:
 
 ```
 root@odroid-jessie:~/odroid-webserver/master# ./configure.sh --hostname foo-odroid
-```
-
-Script execution with **dhcp network** and **spanish keyboard layout** configuration:
-
-```
-root@odroid-jessie:~/odroid-webserver/master# ./configure.sh --hostname foo-odroid --keymap es
 ```
 
 **NOTA:** This configuration could take beetwen 30-60 minutes depending on your internet bandwith.
@@ -81,6 +75,7 @@ The scripts do several things in order to hace the system updated and installed 
 Here is a list of things that the scripts do:
 
 * Update and upgrade installation to the last packages version.
+* Configure keyboard layout.
 * Set new hostname.
 * Change to custom network configuration.
 * Creation of a new user **op** with password **toor**. This user is added to the sudoers group, so you have not to use **root** user.

@@ -10,7 +10,6 @@ RES=0
 
 ##################### Functions definition
 function check_result {
-  echo "$RES"
   if [ "$1" -gt "0" ] ; then
     RES=1
     exit 1
@@ -47,7 +46,7 @@ if [ "$?" -eq "0" ] ; then
 fi
 
 echo "Securization --> Installing previous dependencies"
-apt-get install sudo whois -qq
+apt-get install sudo whois -q -y
 
 echo "Securization --> Adding new user <op> with password <toor>"
 useradd -p $(mkpasswd $PASS) -s /bin/bash -G sudo -d /home/$USER -m $USER
