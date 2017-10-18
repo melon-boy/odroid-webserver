@@ -13,7 +13,7 @@ Debian Jessie image from meveric is disponible for download [here](https://forum
 ### Get projet folder from git
 
 * Login as user **root** into your Odroid installation.
-* Install git package (-qq for ultra silent option):
+* Install git package in order to clone project:
 
 	```
 	root@odroid-jessie:~# apt-get update -qq
