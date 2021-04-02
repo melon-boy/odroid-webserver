@@ -82,6 +82,6 @@ Here is a list of things that the scripts do:
 
 Developed with [Atom](https://atom.io).
 
-Scripts created and tested by M. Espinosa <melon-boy> © 2017 (themelonboy@themelonboy.com)
+Scripts created and tested by M. Espinosa <melon-boy> © 2017 (hi@marcoespinosa.es)
 
 Special Thanks to **meveric** for Debian Jessie distribution for Odroid.
